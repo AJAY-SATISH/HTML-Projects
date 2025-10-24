@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <form id="contactForm" class="contact-form" novalidate>
+            <h1>Contact Us</h1>
+
+            <div class="field-group names-group">
+                <div class="form-field">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required aria-required="true">
+                    <div id="firstNameError" class="error-message" role="alert" aria-live="assertive"></div>
+                </div>
+
+                <div class="form-field">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required aria-required="true">
+                    <div id="lastNameError" class="error-message" role="alert" aria-live="assertive"></div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+                <div id="emailError" class="error-message" role="alert" aria-live="assertive"></div>
+            </div>
+
+            <fieldset class="form-field query-type-group">
+                <legend>Query Type *</legend>
+                <div class="radio-options">
+                    <div class="radio-option">
+                        <input type="radio" id="generalEnquiry" name="queryType" value="general" required>
+                        <label for="generalEnquiry">General Enquiry</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="supportRequest" name="queryType" value="support" required>
+                        <label for="supportRequest">Support Request</label>
+                    </div>
+                </div>
+                <div id="queryTypeError" class="error-message" role="alert" aria-live="assertive"></div>
+            </fieldset>
+
+            <div class="form-field">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                <div id="messageError" class="error-message" role="alert" aria-live="assertive"></div>
+            </div>
+
+            <div class="form-field checkbox-field">
+                <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                <label for="consent">I consent to being contacted by the team *</label>
+                <div id="consentError" class="error-message" role="alert" aria-live="assertive"></div>
+            </div>
+
+            <button type="submit" class="submit-button">Submit</button>
+
+            <div id="successToast" class="toast-message" role="status" aria-live="assertive" aria-hidden="true">
+                ✅ Message Sent! We've received your enquiry and will be in touch shortly.
+            </div>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
